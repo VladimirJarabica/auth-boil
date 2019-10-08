@@ -16,3 +16,9 @@ export const createRefreshToken = (user: User) => {
     }
   );
 };
+
+export const createPasswordResetToken = (user: User) => {
+  return sign({ userId: user.id }, options!.passwordResetSecret, {
+    expiresIn: "15min"
+  });
+};

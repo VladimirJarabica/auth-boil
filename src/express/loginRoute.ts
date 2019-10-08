@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 
-import { login } from "common/login";
+import { login } from "../common/login";
 import { setRefreshTokenCookie } from "./setRefreshTokenCookie";
 
-export const expressLogin = async (req: Request, res: Response) => {
+export const loginRoute = async (req: Request, res: Response) => {
   const body = req.body as any;
   const loginResponse = await login(body.email, body.password);
 

@@ -10,8 +10,14 @@ export type User = {
 export interface Options {
   getUserById(id: string | number): Promise<User>;
   getUserByEmail(email: string): Promise<User>;
+  addUser(user: User): Promise<boolean>;
+  processForgotPasswordToken(
+    email: string,
+    forgotPasswordToken: string
+  ): Promise<boolean>;
   accessTokenSecret: string;
   refreshTokenSecret: string;
+  passwordResetSecret: string;
 }
 
 export let options: Options | null = null;
