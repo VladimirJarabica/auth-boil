@@ -1,0 +1,24 @@
+{
+  "name": "auth-boilerplate",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": "git@bitbucket.org:charlietribe/auth-boilerplate.git",
+  "author": "Vladimír Jarabica <vladojarabica@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/express": "^4.17.1",
+    "@types/jsonwebtoken": "^8.3.4",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "typescript": "^3.6.3"
+  },
+  "devDependencies": {
+    "body-parser": "^1.19.0"
+  }
+}
