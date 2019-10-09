@@ -10,7 +10,7 @@ export type User = {
 export interface Options {
   getUserById(id: string | number): Promise<User>;
   getUserByEmail(email: string): Promise<User>;
-  addUser(user: User): Promise<boolean>;
+  addUser(user: Omit<User, "id" | "tokenVersion">): Promise<boolean>;
   updateUser(oldUser: User, newUser: User): Promise<boolean>;
   processForgotPasswordToken(
     email: string,
