@@ -1,13 +1,12 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
-import {
-  User,
-  config,
-  getExpressRegisterRoute,
-  hashPassword,
-  expressLoginRoute
-} from "../../src";
-import { forgotPasswordRoute } from "../../src/express/forgotPasswordRoute";
+import cookieParser from "cookie-parser";
+import { User, config, hashPassword } from "../../src";
+// import { forgotPasswordRoute } from "../../src/express/forgotPasswordRoute";
+// import { resetPasswordRoute } from "../../src/express/changePasswordRoute";
+// import { logoutRoute } from "../../src/express/logoutRoute";
+import { getAuthRouter } from "../../src/express/router";
+import { isAuth } from "../../src/express/isAuthMiddleware";
 
 const run = async () => {
   const mockUser = {
@@ -28,22 +27,39 @@ const run = async () => {
       console.log("forgot password token ", email, token);
       return true;
     },
+    async updateUser(oldUser: User, newUser: User) {
+      console.log("user changed", oldUser, newUser);
+      return true;
+    },
     accessTokenSecret: "123",
     refreshTokenSecret: "321",
-    passwordResetSecret: "213"
+    passwordResetSecret: "213",
+    refreshTokenPath: "/refresh-token"
   });
 
   const app = express();
 
   app.use(bodyParser.json());
 
+  app.use(cookieParser());
+
+  app.use("/", getAuthRouter<User>());
+
+  app.get("/auth", isAuth, (_: Request, res: Response) => {
+    res.send("auth route");
+  });
+
   app.get("/", (_, res) => res.json("root"));
 
-  app.post("/login", expressLoginRoute);
+  // app.post("/login", expressLoginRoute);
 
-  app.post("/register", getExpressRegisterRoute<User>());
+  // app.post("/register", getExpressRegisterRoute<User>());
 
-  app.post("/forgot-password", forgotPasswordRoute);
+  // app.post("/forgot-password", forgotPasswordRoute);
+
+  // app.post("/reset-password", resetPasswordRoute);
+
+  // app.post("/logout", logoutRoute);
 
   const port = 3000;
   app.listen(port, () => {

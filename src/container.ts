@@ -11,6 +11,7 @@ export interface Options {
   getUserById(id: string | number): Promise<User>;
   getUserByEmail(email: string): Promise<User>;
   addUser(user: User): Promise<boolean>;
+  updateUser(oldUser: User, newUser: User): Promise<boolean>;
   processForgotPasswordToken(
     email: string,
     forgotPasswordToken: string
@@ -18,10 +19,23 @@ export interface Options {
   accessTokenSecret: string;
   refreshTokenSecret: string;
   passwordResetSecret: string;
+  refreshTokenPath: string;
 }
 
-export let options: Options | null = null;
+const DEFAULT_OPTIONS: Options = {
+  getUserById: (_: UserId) => Promise.reject(),
+  getUserByEmail: (_: string) => Promise.reject(),
+  addUser: (_: User) => Promise.reject(),
+  updateUser: (_: User, __: User) => Promise.reject(),
+  processForgotPasswordToken: (_: string, __string) => Promise.reject(),
+  accessTokenSecret: "123",
+  refreshTokenSecret: "123",
+  passwordResetSecret: "123",
+  refreshTokenPath: "/refresh-token"
+};
+
+export let options: Options = DEFAULT_OPTIONS;
 
 export const init = (_options: Options) => {
-  options = _options;
+  options = { ...options, ..._options };
 };

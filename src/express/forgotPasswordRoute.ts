@@ -8,7 +8,7 @@ export const forgotPasswordRoute = async (req: Request, res: Response) => {
     const body = req.body as any;
     const { email, passwordResetToken } = await forgotPassword(body.email);
 
-    const result = await options!.processForgotPasswordToken(
+    const result = await options.processForgotPasswordToken(
       email,
       passwordResetToken
     );
