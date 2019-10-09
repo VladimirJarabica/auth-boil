@@ -61,6 +61,9 @@ const run = async () => {
     UserRegisterInput,
     processRefreshToken(context, refreshToken) {
       setRefreshTokenCookie(context.res, refreshToken);
+    },
+    getCookie(context, cookieName) {
+      return context.req.cookies[cookieName];
     }
   });
 
