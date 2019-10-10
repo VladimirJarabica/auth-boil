@@ -42,6 +42,5 @@ export const getAuthRouter = <UserType extends User>(
   router.post(options.resetPassword, resetPasswordRoute);
   router.post(options.changePassword, isAuth, changePasswordRoute);
   router.post(options.logout, logoutRoute);
-  console.log("get auth router", options, router);
   return router;
 };

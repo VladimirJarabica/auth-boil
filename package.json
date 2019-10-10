@@ -1,11 +1,11 @@
 {
-  "name": "auth-boilerplate",
+  "name": "auth-boil",
   "version": "0.0.1",
   "main": "src/index.js",
   "scripts": {
     "build": "rimraf dist && tsc"
   },
-  "repository": "git@bitbucket.org:charlietribe/auth-boilerplate.git",
+  "repository": "git@bitbucket.org:charlietribe/auth-boil.git",
   "author": "Vladimír Jarabica <vladojarabica@gmail.com>",
   "license": "MIT",
   "private": true,

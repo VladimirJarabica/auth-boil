@@ -178,6 +178,12 @@ export const getAuthResolver = <Context, UserType>({
       }
       return { ok: false, reason: "changin_password_failed" };
     }
+
+    @Mutation(() => BasicResponse)
+    logout(@Ctx() context: Context) {
+      processRefreshToken(context, "");
+      return { ok: true };
+    }
   }
 
   return AuthResolver;
