@@ -1,0 +1,24 @@
+{
+  "name": "@auth-boil/graphql",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "license": "MIT",
+  "devDependencies": {
+    "@auth-boil/common": "0.0.1",
+    "@types/jsonwebtoken": "^8.3.4",
+    "@types/node": "^12.7.12",
+    "rimraf": "^3.0.0",
+    "typescript": "^3.6.3"
+  },
+  "scripts": {
+    "say": "echo \"Graphql: building\"",
+    "build": "npm run say && rimraf dist && tsc",
+    "build:watch": "npm run say && tsc --watch"
+  },
+  "dependencies": {
+    "graphql": "^14.5.8",
+    "jsonwebtoken": "^8.5.1",
+    "type-graphql": "^0.17.5"
+  }
+}
