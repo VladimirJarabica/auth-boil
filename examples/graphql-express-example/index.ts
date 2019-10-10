@@ -64,6 +64,10 @@ const run = async () => {
     },
     getCookie(context, cookieName) {
       return context.req.cookies[cookieName];
+    },
+    getHeader(context: Context, headerName: string) {
+      const header = context.req.headers[headerName];
+      return Array.isArray(header) ? header[0] : header;
     }
   });
 

@@ -1,11 +1,13 @@
 import { Request, Response } from "express";
 
-import { resetPassword } from "../common/resetPassword";
+import { changePassword } from "../common/changePassword";
 
-export const resetPasswordRoute = async (req: Request, res: Response) => {
+export const changePasswordRoute = async (req: Request, res: Response) => {
   try {
-    const body = req.body as any;
-    const result = await resetPassword(body.token, body.password);
+    const { oldPassword, newPassword } = req.body as any;
+
+    // @ts-ignore
+    const result = await changePassword(req.userId, oldPassword, newPassword);
 
     if (result) {
       return res.sendStatus(200);

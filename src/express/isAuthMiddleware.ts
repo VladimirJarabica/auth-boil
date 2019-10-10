@@ -1,6 +1,8 @@
 import { Request, Response, NextFunction } from "express";
 import { getUserId } from "../common/getUserId";
 
+export type AuthRequest = Request & { userId: string };
+
 export const isAuth = (req: Request, _: Response, next: NextFunction) => {
   const userId = getUserId(req.headers["authorization"]);
 
