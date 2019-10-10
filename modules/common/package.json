@@ -3,7 +3,13 @@
   "version": "0.0.1",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "private": false,
+  "author": "Vladimír Jarabica",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:VladimirJarabica/auth-boil.git"
+  },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
     "@types/jsonwebtoken": "^8.3.4",
