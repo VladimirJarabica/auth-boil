@@ -21,7 +21,7 @@
     "build:watch": "npm run say"
   },
   "dependencies": {
-    "apollo-server-express": "^2.9.5",
+    "apollo-server-express": "^2.14.2",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.4",
     "express": "^4.17.1",
