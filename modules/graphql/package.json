@@ -25,6 +25,6 @@
   "dependencies": {
     "graphql": "^14.5.8",
     "jsonwebtoken": "^8.5.1",
-    "type-graphql": "^0.17.5"
+    "type-graphql": "^0.17.6"
   }
 }
