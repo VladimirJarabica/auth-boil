@@ -23,6 +23,6 @@
     "build:watch": "npm run say && tsc --watch"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   }
 }
